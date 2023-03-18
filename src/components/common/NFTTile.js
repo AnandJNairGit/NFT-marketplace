@@ -10,28 +10,28 @@ import { useNavigate } from "react-router-dom";
 import { Chip } from "@mui/material";
 import { Close, Done } from "@mui/icons-material";
 
-export default function CampaignTile({ campaignObj, showStatusBadge }) {
-  const { id, imageUrl, title, description } = campaignObj;
+export default function NFTTile({ nftObj, showStatusBadge }) {
+  const { id, imageUrl, title, description, price } = nftObj;
   const navigate = useNavigate();
   const navigateToCampaign = () => {
-    navigate(`/campaigns/${id}`, { state: campaignObj });
+    // navigate(`/nft/${id}`, { state: campaignObj });
   };
   const StatusBadge = () => {
     return (
       <>
-        {campaignObj.approved ? (
+        {nftObj.listed ? (
           <Chip
             sx={{ marginTop: 1 }}
             icon={<Done />}
-            label="Approved"
+            label="Listed"
             color="success"
           />
         ) : (
           <Chip
             sx={{ marginTop: 1 }}
             icon={<Close />}
-            label="Not Approved"
-            color="error"
+            label="Not Listed"
+            color="warning"
           />
         )}
       </>
@@ -42,13 +42,16 @@ export default function CampaignTile({ campaignObj, showStatusBadge }) {
     <Card sx={{ width: 350, height: 355, margin: 5 }}>
       <CardMedia
         component="img"
-        alt="green iguana"
+        alt="nft img"
         height="140"
         image={imageUrl}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div">
+          {price}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {truncate(description, 100)}

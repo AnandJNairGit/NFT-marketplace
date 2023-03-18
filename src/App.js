@@ -8,6 +8,7 @@ import Admin from "./pages/admin";
 import Home from "./pages/home";
 import Marketplace from "./pages/marketplace";
 import Profile from "./pages/profile";
+import MyNftDetail from "./pages/profile/MyNftDetail";
 import getContract from "./services/ethers";
 
 export const ContractContext = createContext();
@@ -85,9 +86,13 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Marketplace" element={<Marketplace />} />
+              <Route path="/Marketplace/nft/:id" element={<Marketplace />} />
+
               {/* <Route path="/Create" element={<Create />} /> */}
               <Route path="/Profile" element={<Profile />} />
-              {contractConfig.isAdmin? (
+              <Route path="/Profile/nft/:id" element={<MyNftDetail />} />
+
+              {contractConfig.isAdmin ? (
                 <Route path="/admin" element={<Admin />} />
               ) : (
                 ""

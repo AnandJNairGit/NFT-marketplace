@@ -414,7 +414,7 @@
             },
             {
               "internalType": "string",
-              "name": "ipfsUri",
+              "name": "ipfsHash",
               "type": "string"
             },
             {
@@ -454,7 +454,7 @@
             },
             {
               "internalType": "string",
-              "name": "ipfsUri",
+              "name": "ipfsHash",
               "type": "string"
             },
             {
