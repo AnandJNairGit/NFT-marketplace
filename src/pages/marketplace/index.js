@@ -1,7 +1,12 @@
 import React from "react";
+import MintNft from "../../components/MintNft";
 
 const Marketplace = () => {
-  return <div>Marketplace</div>;
+  return (
+    <>
+      <MintNft />
+    </>
+  );
 };
 
 export default Marketplace;

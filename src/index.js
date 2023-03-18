@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const darkTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
       main: orange[500],
     },

@@ -71,7 +71,7 @@ function NavBar(props) {
         component="nav"
         sx={{
           background:
-            "linear-gradient(to right, #f25d0e, #ec650b, #e66d0b, #e0730d, #da7911)",
+            "linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
           position: "fixed",
           top: 0,
           // zIndex: 1,

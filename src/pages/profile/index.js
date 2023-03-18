@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import MintNft from "../../components/MintNft";
 
 const Profile = () => {
   return (
-    <div>Profile</div>
-  )
-}
+    <>
+      <MintNft />
+    </>
+  );
+};
 
-export default Profile
+export default Profile;

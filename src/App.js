@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import BackdropProgress from "./components/common/BackdropProgress";
 import SnackNotification from "./components/common/SnackNotification";
-import NavBar from "./components/navBar";
+import NavBar from "./components/navbar";
 import Admin from "./pages/admin";
 import Home from "./pages/home";
 import Marketplace from "./pages/marketplace";

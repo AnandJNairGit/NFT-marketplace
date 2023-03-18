@@ -8,10 +8,12 @@ async function getContract() {
 
   // Create the contract instance
   const contract = new ethers.Contract(
-    "0x527E4987b3A82B5de475D28DFB34E1961a0353C2",
+    "0x8c6e46B82D6c75D64563362a8659F3E0C5EA1630",
     NFTMarketplace.abi,
     signer
   );
+
+  console.log("----------->", await contract.getAllMyTokens());
 
   // Call multiple contract methods at once using Promise.all()
   const [isAdmin, mintingPrice, allowCreate, allowListing, allowBuy] =
