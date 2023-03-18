@@ -27,9 +27,9 @@ const CreateForm = ({ closeModal, setProgressOpen }) => {
         closeModal();
         setProgressOpen(true);
         const { nftTitle, nftDescription } = values;
-        const createDate = currentUnixTimestamp();
+        const mintedDate = currentUnixTimestamp();
         const imgUrl = await uploadImageToIPFS(image);
-        const jsonData = { nftTitle, nftDescription, createDate, imgUrl };
+        const jsonData = { nftTitle, nftDescription, mintedDate, imgUrl };
         const metaDataUrl = await uploadJSONToIPFS(jsonData);
         const transaction = await contractContext.contract.createToken(
           metaDataUrl

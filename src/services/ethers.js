@@ -8,7 +8,7 @@ async function getContract() {
 
   // Create the contract instance
   const contract = new ethers.Contract(
-    "0x8c6e46B82D6c75D64563362a8659F3E0C5EA1630",
+    "0x57889b9E4FBb33544Ba15c8e0d41b2943A6a0301",
     NFTMarketplace.abi,
     signer
   );
