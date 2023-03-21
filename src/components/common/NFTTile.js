@@ -39,7 +39,7 @@ export default function NFTTile({ nftObj, showStatusBadge }) {
   };
 
   return (
-    <Card sx={{ width: 350, height: 455, margin: 5 }}>
+    <Card sx={{ width: 350, height: 400, margin: 5 }}>
       <CardMedia component="img" alt="nft img" height="140" image={imageUrl} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
