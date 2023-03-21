@@ -11,15 +11,15 @@ import { Chip } from "@mui/material";
 import { Close, Done } from "@mui/icons-material";
 
 export default function NFTTile({ nftObj, showStatusBadge }) {
-  const { id, imageUrl, title, description, price } = nftObj;
+  const { id, imageUrl, title, description, price,isListed } = nftObj;
   const navigate = useNavigate();
   const navigateToCampaign = () => {
-    // navigate(`/nft/${id}`, { state: campaignObj });
+    navigate(`/nft/${id}`, { state: nftObj });
   };
   const StatusBadge = () => {
     return (
       <>
-        {nftObj.listed ? (
+        {isListed ? (
           <Chip
             sx={{ marginTop: 1 }}
             icon={<Done />}
@@ -39,13 +39,8 @@ export default function NFTTile({ nftObj, showStatusBadge }) {
   };
 
   return (
-    <Card sx={{ width: 350, height: 355, margin: 5 }}>
-      <CardMedia
-        component="img"
-        alt="nft img"
-        height="140"
-        image={imageUrl}
-      />
+    <Card sx={{ width: 350, height: 455, margin: 5 }}>
+      <CardMedia component="img" alt="nft img" height="140" image={imageUrl} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}

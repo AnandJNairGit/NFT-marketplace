@@ -6,9 +6,9 @@ import SnackNotification from "./components/common/SnackNotification";
 import NavBar from "./components/navbar";
 import Admin from "./pages/admin";
 import Home from "./pages/home";
-import Marketplace from "./pages/marketplace";
+import NFT from "./pages/nft";
+import Marketplace from "./pages/nft";
 import Profile from "./pages/profile";
-import MyNftDetail from "./pages/profile/MyNftDetail";
 import getContract from "./services/ethers";
 
 export const ContractContext = createContext();
@@ -86,11 +86,11 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/Marketplace" element={<Marketplace />} />
-              <Route path="/Marketplace/nft/:id" element={<Marketplace />} />
+              {/* <Route path="/Marketplace/nft/:id" element={<Marketplace />} /> */}
 
               {/* <Route path="/Create" element={<Create />} /> */}
               <Route path="/Profile" element={<Profile />} />
-              <Route path="/Profile/nft/:id" element={<MyNftDetail />} />
+              <Route path="/nft/:id" element={<NFT />} />
 
               {contractConfig.isAdmin ? (
                 <Route path="/admin" element={<Admin />} />
