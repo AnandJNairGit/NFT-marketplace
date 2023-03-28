@@ -13,7 +13,7 @@ const MintNft = () => {
   const setSnackbarProps = useContext(SnackbarContext);
   const { allowCreate } = useContext(ContractContext).contractConfig;
 
-  const handleClickOpen = () => {
+  const handleNftMint = () => {
     if (allowCreate) {
       setOpen(true);
     } else {
@@ -45,7 +45,7 @@ const MintNft = () => {
           />
         </ResponsiveModal>
       </div>
-      <FloatingButton onClick={handleClickOpen} title="Mint NFT" Icon={Create}/>
+      <FloatingButton onClick={handleNftMint} title="Mint NFT" Icon={Create}/>
       <BackdropProgress open={progressOpen} />
     </>
   );

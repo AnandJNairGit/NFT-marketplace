@@ -8,8 +8,10 @@ import { Button, Input, TextField } from "@mui/material";
 import { ContractContext, SnackbarContext } from "../../App";
 import BackdropProgress from "../common/BackdropProgress";
 import currentUnixTimestamp from "../../helpers/currentUnixTimestamp";
+import { useNavigate } from "react-router-dom";
 
 const CreateForm = ({ closeModal, setProgressOpen }) => {
+  const navigate = useNavigate0();
   const [image, setImage] = useState();
   const contractContext = useContext(ContractContext);
   const setSnackbarProps = useContext(SnackbarContext);
@@ -40,6 +42,7 @@ const CreateForm = ({ closeModal, setProgressOpen }) => {
           message: " NFT minted successfully",
           type: "success",
         });
+        navigate("/Profile");
       }
     } catch (error) {
       console.log(error);

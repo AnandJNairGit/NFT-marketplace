@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import BackdropProgress from "./components/common/BackdropProgress";
 import SnackNotification from "./components/common/SnackNotification";
+import Connect from "./components/Connect";
 import NavBar from "./components/navbar";
 import Admin from "./pages/admin";
 import Home from "./pages/home";
@@ -101,7 +102,8 @@ function App() {
           </ContractContext.Provider>
         </SnackbarContext.Provider>
       ) : (
-        <BackdropProgress open={true} />
+        // <BackdropProgress open={true} />
+        <Connect />
       )}
       <SnackNotification {...snackbarProps} handleClose={onSnackbarClose} />
     </>
