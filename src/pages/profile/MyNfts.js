@@ -12,6 +12,7 @@ const MyNfts = () => {
   const [myNFTs, setMyNFTs] = useState();
 
   const getMyNFTs = async () => {
+    console.log("inside get NFT");
     const myNFTs = await contract.getAllMyTokens();
     const MyNFTMetadata = await getNftMetadata(myNFTs);
     setMyNFTs(MyNFTMetadata);
@@ -43,7 +44,7 @@ const MyNfts = () => {
       ) : (
         <BackdropProgress open={true} />
       )}
-      <ResponsiveModal
+      {/* <ResponsiveModal
         open={openModal}
         onClose={() => {
           setOpenModal(false);
@@ -51,7 +52,7 @@ const MyNfts = () => {
         title="Fund Campaign"
       >
         <FundForm onSubmit={transferfund} />
-      </ResponsiveModal>
+      </ResponsiveModal> */}
     </>
   );
 };

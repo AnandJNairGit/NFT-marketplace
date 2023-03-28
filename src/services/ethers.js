@@ -1,4 +1,5 @@
 import NFTMarketplace from "../contractABI/NFTMarketplace.json";
+const CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
 
 async function getContract() {
   const ethers = require("ethers");
@@ -8,7 +9,7 @@ async function getContract() {
 
   // Create the contract instance
   const contract = new ethers.Contract(
-    "0x57889b9E4FBb33544Ba15c8e0d41b2943A6a0301",
+    CONTRACT_ADDRESS,
     NFTMarketplace.abi,
     signer
   );

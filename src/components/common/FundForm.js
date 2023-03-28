@@ -2,12 +2,13 @@ import { Box, Button, MenuItem, Select, TextField } from "@mui/material";
 import { ethers } from "ethers";
 import React, { useState } from "react";
 
-const FundForm = ({ onSubmit }) => {
+const ValueGenerator = ({ onSubmit, btnName }) => {
   const [fund, setFund] = useState(100);
   const [unit, setUnit] = useState(0);
   const submit = async () => {
     console.log("inside submit");
-    const value = unit === 0 ? fund : ethers.utils.parseEther(fund.toString());
+    const value =
+      unit === 0 ? Math.round(fund) : ethers.utils.parseEther(fund.toString());
     console.log(value);
     await onSubmit(value);
   };
@@ -18,7 +19,10 @@ const FundForm = ({ onSubmit }) => {
         <TextField
           label="Fund"
           value={fund}
+          type="number"
           onChange={(event) => {
+            console.log(parseInt(event.target.value));
+
             setFund(event.target.value);
           }}
         />
@@ -38,12 +42,17 @@ const FundForm = ({ onSubmit }) => {
           <MenuItem value={0}>Wei</MenuItem>
           <MenuItem value={1}>Ether</MenuItem>
         </Select>
-        <Button sx={{ marginTop: 2 }} variant="contained" onClick={submit}>
-          fund
+        <Button
+          disabled={!(fund > 0 && !isNaN(fund))}
+          sx={{ marginTop: 2 }}
+          variant="contained"
+          onClick={submit}
+        >
+          {btnName}
         </Button>
       </Box>
     </>
   );
 };
 
-export default FundForm;
+export default ValueGenerator;
