@@ -6,8 +6,8 @@ import SnackNotification from "./components/common/SnackNotification";
 import NavBar from "./components/navbar";
 import Admin from "./pages/admin";
 import Home from "./pages/home";
+import Marketplace from "./pages/marketplace";
 import NFT from "./pages/nft";
-import Marketplace from "./pages/nft";
 import Profile from "./pages/profile";
 import getContract from "./services/ethers";
 
