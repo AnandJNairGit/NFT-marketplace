@@ -16,6 +16,7 @@ const NFT = () => {
   const { nftId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
+
   const [nft, setNft] = useState();
   const [progress, setProgress] = useState(false);
   const [openModel, setOpenModel] = useState(false);
@@ -61,6 +62,7 @@ const NFT = () => {
           message: "Listing Successfull",
           type: "success",
         });
+        navigate("/Profile");
       }
     } catch (error) {
       setSnackbarProps({
@@ -70,38 +72,53 @@ const NFT = () => {
       });
     } finally {
       setProgress(false);
-      navigate("/Profile");
     }
   };
 
   const onListClicked = () => {
-    handleClose();
-    setOpenModel(true);
+    if (contractConfig.allowListing) {
+      handleClose();
+      setOpenModel(true);
+    } else {
+      setSnackbarProps({
+        open: true,
+        message: "NFT listing has been disabled by the admin!",
+        type: "info",
+      });
+    }
   };
 
   const buyNft = async () => {
-    try {
-      if (accountAddress != nft.owner) {
-        setProgress(true);
-        const transaction = await contract.buyToken(nft.id, {
-          value: nft.price,
-        });
-        await transaction.wait();
+    if (contractConfig.allowBuy) {
+      try {
+        if (accountAddress != nft.owner) {
+          setProgress(true);
+          const transaction = await contract.buyToken(nft.id, {
+            value: nft.price,
+          });
+          await transaction.wait();
+          setSnackbarProps({
+            open: true,
+            message: "Successfully bought the Token",
+            type: "success",
+          });
+          navigate("/Profile");
+        }
+      } catch (error) {
         setSnackbarProps({
           open: true,
-          message: "Successfully bought the Token",
-          type: "success",
+          message: "Failed to buy the Token",
+          type: "error",
         });
+      } finally {
+        setProgress(false);
       }
-    } catch (error) {
+    } else {
       setSnackbarProps({
         open: true,
-        message: "Failed to buy the Token",
-        type: "error",
+        message: "NFT buying has been disabled by the admin!",
+        type: "info",
       });
-    } finally {
-      setProgress(false);
-      navigate("/Profile");
     }
   };
 

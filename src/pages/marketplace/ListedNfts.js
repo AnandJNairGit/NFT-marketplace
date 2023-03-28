@@ -12,6 +12,7 @@ const ListedNFTs = () => {
   const getlistedNFTs = async () => {
     console.log("inside get NFT");
     const listedNFTs = await contract.getAllListedTokens();
+    console.log("THE LISTED NFTS ARE--------->", listedNFTs);
     const MyNFTMetadata = await getNftMetadata(listedNFTs);
     setListedNFTs(MyNFTMetadata);
     console.log("my NFTs---------->>", MyNFTMetadata);
